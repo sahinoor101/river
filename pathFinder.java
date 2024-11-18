@@ -77,6 +77,5 @@ class pathFinder
             System.out.println(x+","+ (y-1));
             path(x,y-1,mat);
         }
-        return;
     }
 }
