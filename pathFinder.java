@@ -1,4 +1,3 @@
-import java.util.*;
 class pathFinder
 {
     public static void main(String args[])
@@ -47,7 +46,6 @@ class pathFinder
     }
     public void path(int x,int y,int [][]mat)
     {
-        int arr[]={-1,-1,-1,-1,-1,-1,-1,-1};
         pathFinder ob=new pathFinder();
         if(ob.isValid(x,y,mat) ==false)
         {
