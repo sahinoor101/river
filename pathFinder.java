@@ -44,10 +44,7 @@ class pathFinder {
         int rows, cols;
         rows = mat.length;
         cols = mat[0].length;
-        if (x < 0 || y < 0 || x >= rows || y >= cols) {
-            return false;
-        }
-        return true;
+        return !(x < 0 || y < 0 || x >= rows || y >= cols);
     }
 
     public void path(int x, int y, int[][] mat, int count,int st) {
