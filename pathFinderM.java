@@ -1,8 +1,11 @@
+
 class pathFinderM {
 
     public static void main(String args[]) {
         pathFinderM ob = new pathFinderM();
-        int mat[][] = {{0, 0, 0, 1, 0}, {0, 1, 1, 1, 0}, {0, 1, 0, 0, 0}, {0, 1, 1, 0, 0}, {0, 0, 1, 1, 1}};
+        // int mat[][] = {{0, 0, 0, 1, 0}, {0, 1, 1, 1, 0}, {0, 1, 0, 0, 0}, {0, 1, 1,
+        // 0, 0}, {0, 0, 1, 1, 1}};
+        int mat[][] = { { 0, 0, 1, 1, 0, 0, 1, 0, 0, 0 },{ 0, 0, 0, 1, 0, 0, 1, 0, 0, 0 },{ 0, 1, 1, 1, 0, 0, 1, 1, 1, 1 },{ 0, 1, 0, 0, 0, 0, 0, 0, 0, 1 },{ 1, 1, 0, 0, 0, 0, 0, 1, 1, 1 },{ 1, 0, 0, 0, 0, 0, 0, 1, 0, 0 },{ 1, 1, 1, 1, 0, 0, 0, 1, 1, 0 },{ 0, 0, 0, 1, 0, 0, 0, 0, 1, 0 },{ 0, 0, 1, 1, 0, 0, 1, 1, 1, 0 },{ 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 } };
         int rows, cols, start, i, j;
         rows = mat.length;
         cols = mat[0].length;
@@ -14,7 +17,7 @@ class pathFinderM {
             System.out.println();
         }
         System.out.println((cols - 1) + "," + start);
-        ob.path((cols - 1), start, mat, 1,start);
+        ob.path((cols - 1), start, mat, 1, start);
     }
 
     public int start(int mat[][]) {
@@ -28,11 +31,11 @@ class pathFinderM {
         }
         return -1;
     }
-    public int end(int mat[][])
-    {
+
+    public int end(int mat[][]) {
         int rows;
         rows = mat.length;
-        for (int i = 0; i<rows; i++) {
+        for (int i = 0; i < rows; i++) {
             if (mat[0][i] == 1) {
                 return i;
             }
@@ -47,7 +50,7 @@ class pathFinderM {
         return !(x < 0 || y < 0 || x >= rows || y >= cols);
     }
 
-    public void path(int x, int y, int[][] mat, int count,int st) {
+    public void path(int x, int y, int[][] mat, int count, int st) {
         pathFinderM ob = new pathFinderM();
         int rows, cols, i, j;
         rows = mat.length;
@@ -57,7 +60,7 @@ class pathFinderM {
         }
 
         if (count == 2) {
-            mat[rows-1][st] = 1;
+            mat[rows - 1][st] = 1;
         }
         if (ob.isValid(x + 1, y, mat) == true && mat[x + 1][y] == 1) {
             mat[x][y] = count;
@@ -65,7 +68,7 @@ class pathFinderM {
                 mat[x][y] = 0;
             }
             System.out.println((x + 1) + "," + y);
-            path(x + 1, y, mat, count + 1,st);
+            path(x + 1, y, mat, count + 1, st);
         }
         if (ob.isValid(x - 1, y, mat) == true && mat[x - 1][y] == 1) {
             mat[x][y] = count;
@@ -73,7 +76,7 @@ class pathFinderM {
                 mat[x][y] = 0;
             }
             System.out.println((x - 1) + "," + y);
-            path(x - 1, y, mat, count + 1,st);
+            path(x - 1, y, mat, count + 1, st);
         }
         if (ob.isValid(x, y + 1, mat) == true && mat[x][y + 1] == 1) {
             mat[x][y] = count;
@@ -81,7 +84,7 @@ class pathFinderM {
                 mat[x][y] = 0;
             }
             System.out.println(x + "," + (y + 1));
-            path(x, y + 1, mat, count + 1,st);
+            path(x, y + 1, mat, count + 1, st);
         }
         if (ob.isValid(x, y - 1, mat) == true && mat[x][y - 1] == 1) {
             mat[x][y] = count;
@@ -89,11 +92,10 @@ class pathFinderM {
                 mat[x][y] = 0;
             }
             System.out.println(x + "," + (y - 1));
-            path(x, y - 1, mat, count + 1,st);
+            path(x, y - 1, mat, count + 1, st);
         }
-        if (x==0 && y==ob.end(mat)) 
-        {
-            mat[0][y]=count;
+        if (x == 0 && y == ob.end(mat)) {
+            mat[0][y] = count;
             for (i = 0; i < rows; i++) {
                 for (j = 0; j < cols; j++) {
                     System.out.print(" " + mat[i][j]);
