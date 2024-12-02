@@ -1,8 +1,8 @@
-class pathfinderMultiple
+class pathfinderLength
 {
     public static void main(String args[])
     {
-        pathfinderMultiple ob = new pathfinderMultiple();
+        pathfinderLength ob = new pathfinderLength();
         // int mat[][] = {{0, 0, 0, 1, 0}, {0, 1, 1, 1, 0}, {0, 1, 0, 0, 0}, {0, 1, 1,
         // 0, 0}, {0, 0, 1, 1, 1}};
         int mat[][] = { { 0, 0, 1, 1, 0, 1, 1, 0, 0, 0 },{ 0, 0, 0, 1, 0, 0, 1, 0, 0, 0 },{ 0, 1, 1, 1, 0, 0, 1, 1, 1, 1 },{ 0, 1, 0, 0, 0, 0, 0, 0, 0, 1 },{ 1, 1, 0, 0, 0, 0, 0, 1, 1, 1 },{ 1, 0, 0, 0, 0, 0, 0, 1, 0, 0 },{ 1, 1, 1, 1, 0, 0, 0, 1, 1, 0 },{ 0, 0, 0, 1, 0, 0, 0, 0, 1, 0 },{ 0, 0, 1, 1, 0, 0, 1, 1, 1, 0 },{ 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 } };
@@ -52,7 +52,7 @@ class pathfinderMultiple
     }
     public int length(int x, int y, int[][] mat, int count) 
     {
-        pathfinderMultiple ob = new pathfinderMultiple();
+        pathfinderLength ob = new pathfinderLength();
         if (ob.isValid(x, y, mat) == false) {
             return -1;
         }
